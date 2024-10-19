@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mdwhatcott/testing/should"
+	"github.com/mdw-go/testing/should"
 )
 
 func TestShouldHappenBefore(t *testing.T) {

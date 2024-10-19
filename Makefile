@@ -11,7 +11,7 @@ test:
 
 onefile:
 	go install github.com/mdwhatcott/go-mergepkg@latest && \
-	go-mergepkg -dirs "should" -header "github.com/mdwhatcott/testing/should@$(shell git describe) (a little copy-paste is better than a little dependency)"
+	go-mergepkg -dirs "should" -header "github.com/mdw-go/testing/should@$(shell git describe) (a little copy-paste is better than a little dependency)"
 
 doc:
 	printf '# ' > README.md && \

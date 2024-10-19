@@ -1,7 +1,7 @@
-# github.com/mdwhatcott/testing
+# github.com/mdw-go/testing
 
 
-	package should // import "github.com/mdwhatcott/testing/should"
+	package should // import "github.com/mdw-go/testing/should"
 	
 	Package should
 	
@@ -19,7 +19,7 @@
 	    	"log"
 	    	"testing"
 	
-	    	"github.com/mdwhatcott/testing/should"
+	    	"github.com/mdw-go/testing/should"
 	    )
 	
 	    func Test(t *testing.T) {

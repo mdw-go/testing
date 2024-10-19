@@ -3,7 +3,7 @@ package bowling
 import (
 	"testing"
 
-	"github.com/mdwhatcott/testing/should"
+	"github.com/mdw-go/testing/should"
 )
 
 func TestGameFixture(t *testing.T) {

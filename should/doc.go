@@ -14,7 +14,7 @@ The simplest way is by combining the So function with the many provided assertio
 		"log"
 		"testing"
 
-		"github.com/mdwhatcott/testing/should"
+		"github.com/mdw-go/testing/should"
 	)
 
 	func Test(t *testing.T) {

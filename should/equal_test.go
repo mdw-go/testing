@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mdwhatcott/testing/should"
+	"github.com/mdw-go/testing/should"
 )
 
 func TestShouldEqual(t *testing.T) {

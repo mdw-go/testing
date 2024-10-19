@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/mdwhatcott/testing/should"
+	"github.com/mdw-go/testing/should"
 )
 
 func TestShouldBeLessThanOrEqualTo(t *testing.T) {

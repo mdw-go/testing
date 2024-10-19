@@ -1,3 +1,3 @@
-module github.com/mdwhatcott/testing
+module github.com/mdw-go/testing
 
 go 1.21

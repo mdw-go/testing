@@ -3,7 +3,7 @@ package should_test
 import (
 	"testing"
 
-	"github.com/mdwhatcott/testing/should"
+	"github.com/mdw-go/testing/should"
 )
 
 func TestShouldHaveLength(t *testing.T) {
