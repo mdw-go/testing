@@ -16,27 +16,27 @@ type Assertion struct{ *testing.T }
 func NewAssertion(t *testing.T) *Assertion {
 	return &Assertion{T: t}
 }
-func (this *Assertion) ExpectedCountInvalid(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) ExpectedCountInvalid(actual any, assertion suite.Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, should.ErrExpectedCountInvalid)
 }
-func (this *Assertion) TypeMismatch(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) TypeMismatch(actual any, assertion suite.Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, should.ErrTypeMismatch)
 }
-func (this *Assertion) KindMismatch(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) KindMismatch(actual any, assertion suite.Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, should.ErrKindMismatch)
 }
-func (this *Assertion) Fail(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) Fail(actual any, assertion suite.Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, suite.ErrAssertionFailure)
 }
-func (this *Assertion) Pass(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) Pass(actual any, assertion suite.Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, nil)
 }
-func (this *Assertion) err(actual any, assertion should.Func, expected []any, expectedErr error) {
+func (this *Assertion) err(actual any, assertion suite.Func, expected []any, expectedErr error) {
 	this.Helper()
 	_, file, line, _ := runtime.Caller(2)
 	subTest := fmt.Sprintf("%s:%d", filepath.Base(file), line)
