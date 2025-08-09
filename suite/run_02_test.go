@@ -3,19 +3,18 @@ package suite_test
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/v2/assert"
 	"github.com/mdw-go/testing/v2/should"
 	"github.com/mdw-go/testing/v2/suite"
 )
 
 func TestFreshFixture(t *testing.T) {
-	fixture := &Suite02{T: assert.New(t)}
+	fixture := &Suite02{T: suite.New(t)}
 	suite.Run(fixture, suite.Options.UnitTests())
 	fixture.So(fixture.counter, should.Equal, 0)
 }
 
 type Suite02 struct {
-	*assert.T
+	*suite.T
 	counter int
 }
 

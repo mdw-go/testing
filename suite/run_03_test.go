@@ -3,18 +3,17 @@ package suite_test
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/v2/assert"
 	"github.com/mdw-go/testing/v2/should"
 	"github.com/mdw-go/testing/v2/suite"
 )
 
 func TestSkip(t *testing.T) {
-	fixture := &Suite03{T: assert.New(t)}
+	fixture := &Suite03{T: suite.New(t)}
 	suite.Run(fixture)
 	fixture.So(t.Failed(), should.BeFalse)
 }
 
-type Suite03 struct{ *assert.T }
+type Suite03 struct{ *suite.T }
 
 func (this *Suite03) SkipTestThatFails() {
 	this.So(1, should.Equal, 2)

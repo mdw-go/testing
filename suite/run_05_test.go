@@ -3,14 +3,13 @@ package suite_test
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/v2/assert"
 	"github.com/mdw-go/testing/v2/should"
 	"github.com/mdw-go/testing/v2/suite"
 )
 
 func TestFocus(t *testing.T) {
 	fixture := &Suite05{
-		T:      assert.New(t),
+		T:      suite.New(t),
 		events: make(map[string]struct{}),
 	}
 
@@ -28,7 +27,7 @@ func TestFocus(t *testing.T) {
 }
 
 type Suite05 struct {
-	*assert.T
+	*suite.T
 	events map[string]struct{}
 }
 

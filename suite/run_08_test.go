@@ -3,13 +3,12 @@ package suite_test
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/v2/assert"
 	"github.com/mdw-go/testing/v2/should"
 	"github.com/mdw-go/testing/v2/suite"
 )
 
 func TestLongRunningSuite(t *testing.T) {
-	fixture := &Suite08{T: assert.New(t)}
+	fixture := &Suite08{T: suite.New(t)}
 
 	suite.Run(fixture, suite.Options.LongRunning())
 
@@ -27,7 +26,7 @@ func TestLongRunningSuite(t *testing.T) {
 }
 
 type Suite08 struct {
-	*assert.T
+	*suite.T
 	events []string
 }
 

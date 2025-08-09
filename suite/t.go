@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/mdw-go/testing/assert"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 type T struct{ *testing.T }
