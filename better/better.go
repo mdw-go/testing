@@ -11,9 +11,9 @@ func wrap(assertion assert.Func) assert.Func {
 	return func(actual any, expected ...any) error {
 		err := assertion(actual, expected...)
 		if err != nil {
-			err = fmt.Errorf("%w %w", assert.ErrFatalAssertionFailure, err)
+			return fmt.Errorf("%w %w", assert.ErrFatalAssertionFailure, err)
 		}
-		return err
+		return nil
 	}
 }
 
