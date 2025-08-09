@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/mdw-go/testing/v2/suite"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 var (
@@ -23,7 +23,7 @@ func failure(format string, args ...any) error {
 		format += "\nStack: (filtered)\n%s"
 		args = append(args, trace)
 	}
-	return wrap(suite.ErrAssertionFailure, format, args...)
+	return wrap(assert.ErrAssertionFailure, format, args...)
 }
 func stack() string {
 	lines := strings.Split(string(debug.Stack()), "\n")

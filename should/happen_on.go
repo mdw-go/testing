@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/mdw-go/testing/v2/suite"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 // HappenOn ensures that two time values happen at the same instant.
@@ -29,7 +29,7 @@ func HappenOn(actual any, expected ...any) error {
 // HappenOn negated!
 func (negated) HappenOn(actual any, expected ...any) error {
 	err := HappenOn(actual, expected...)
-	if errors.Is(err, suite.ErrAssertionFailure) {
+	if errors.Is(err, assert.ErrAssertionFailure) {
 		return nil
 	}
 	if err != nil {

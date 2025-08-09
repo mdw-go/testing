@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/mdw-go/testing/v2/suite"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 // BeChronological asserts whether actual is a []time.Time and
@@ -32,7 +32,7 @@ func BeChronological(actual any, expected ...any) error {
 // BeChronological (negated!)
 func (negated) BeChronological(actual any, expected ...any) error {
 	err := BeChronological(actual, expected...)
-	if errors.Is(err, suite.ErrAssertionFailure) {
+	if errors.Is(err, assert.ErrAssertionFailure) {
 		return nil
 	}
 	if err != nil {

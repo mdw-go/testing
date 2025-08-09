@@ -4,13 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"testing"
-)
 
-type Func func(actual any, expected ...any) error
-
-var (
-	ErrAssertionFailure      = errors.New("assertion failure")
-	ErrFatalAssertionFailure = errors.New("fatal")
+	"github.com/mdw-go/testing/assert"
 )
 
 type T struct{ *testing.T }
@@ -18,10 +13,10 @@ type T struct{ *testing.T }
 func New(t *testing.T) *T {
 	return &T{T: t}
 }
-func (this *T) So(actual any, assertion Func, expected ...any) (ok bool) {
+func (this *T) So(actual any, assertion assert.Func, expected ...any) (ok bool) {
 	this.Helper()
 	err := assertion(actual, expected...)
-	if errors.Is(err, ErrFatalAssertionFailure) {
+	if errors.Is(err, assert.ErrFatalAssertionFailure) {
 		this.Fatal(err)
 	}
 	if err != nil {

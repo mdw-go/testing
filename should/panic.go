@@ -3,14 +3,14 @@ package should
 import (
 	"errors"
 
-	"github.com/mdw-go/testing/v2/suite"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 // Panic invokes the func() provided as actual and recovers from any
 // panic. It returns an error if actual() does not result in a panic.
 func Panic(actual any, expected ...any) (err error) {
 	err = NOT.Panic(actual, expected...)
-	if errors.Is(err, suite.ErrAssertionFailure) {
+	if errors.Is(err, assert.ErrAssertionFailure) {
 		return nil
 	}
 

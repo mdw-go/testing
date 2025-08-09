@@ -3,7 +3,7 @@ package should
 import (
 	"errors"
 
-	"github.com/mdw-go/testing/v2/suite"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 // BeGreaterThan verifies that actual is greater than expected.
@@ -23,7 +23,7 @@ func BeGreaterThan(actual any, EXPECTED ...any) error {
 // BeGreaterThan negated!
 func (negated) BeGreaterThan(actual any, expected ...any) error {
 	err := BeGreaterThan(actual, expected...)
-	if errors.Is(err, suite.ErrAssertionFailure) {
+	if errors.Is(err, assert.ErrAssertionFailure) {
 		return nil
 	}
 

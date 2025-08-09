@@ -4,7 +4,7 @@ import (
 	"errors"
 	"reflect"
 
-	"github.com/mdw-go/testing/v2/suite"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 // BeNil verifies that actual is the nil value.
@@ -38,7 +38,7 @@ func interfaceHasNilValue(actual any) bool {
 // BeNil negated!
 func (negated) BeNil(actual any, expected ...any) error {
 	err := BeNil(actual, expected...)
-	if errors.Is(err, suite.ErrAssertionFailure) {
+	if errors.Is(err, assert.ErrAssertionFailure) {
 		return nil
 	}
 

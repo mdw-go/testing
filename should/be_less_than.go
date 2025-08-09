@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/mdw-go/testing/v2/suite"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 // BeLessThan verifies that actual is less than expected.
@@ -41,7 +41,7 @@ func BeLessThan(actual any, EXPECTED ...any) error {
 // BeLessThan negated!
 func (negated) BeLessThan(actual any, expected ...any) error {
 	err := BeLessThan(actual, expected...)
-	if errors.Is(err, suite.ErrAssertionFailure) {
+	if errors.Is(err, assert.ErrAssertionFailure) {
 		return nil
 	}
 

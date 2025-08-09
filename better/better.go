@@ -1,49 +1,17 @@
-/*
-Package better
-
-This package strives to make it easy, even fun, for software developers to produce
-> a quick, sure, and repeatable proof that every element of the code works as it should.
-(See [The Programmer's Oath](http://blog.cleancoder.com/uncle-bob/2015/11/18/TheProgrammersOath.html))
-
-The simplest way is by combining the So function with the many provided assertions, such as better.Equal:
-
-	package whatever
-
-	import (
-		"log"
-		"testing"
-
-		"github.com/mdw-go/testing/v2/better"
-	)
-
-	func Test(t *testing.T) {
-		better.So(t, 1, better.Equal, 1)
-	}
-
-NOTE: assertions provided by this package return suite.ErrFatalAssertionFailure in the case of failed assertions, which
-will result in a call to *testing.T.Fatal(), ending the current test. Use the assertions in the should package if you
-wish for tests to continue after a failed assertion.
-*/
 package better
 
 import (
 	"fmt"
-	"testing"
 
+	"github.com/mdw-go/testing/v2/assert"
 	"github.com/mdw-go/testing/v2/should"
-	"github.com/mdw-go/testing/v2/suite"
 )
 
-func So(t *testing.T, actual any, assertion suite.Func, expected ...any) {
-	t.Helper()
-	_ = suite.New(t).So(actual, assertion, expected...)
-}
-
-func wrap(assertion suite.Func) suite.Func {
+func wrap(assertion assert.Func) assert.Func {
 	return func(actual any, expected ...any) error {
 		err := assertion(actual, expected...)
 		if err != nil {
-			err = fmt.Errorf("%w %w", suite.ErrFatalAssertionFailure, err)
+			err = fmt.Errorf("%w %w", assert.ErrFatalAssertionFailure, err)
 		}
 		return err
 	}

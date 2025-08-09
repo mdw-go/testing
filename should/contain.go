@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/mdw-go/testing/v2/suite"
+	"github.com/mdw-go/testing/v2/assert"
 )
 
 // Contain determines whether actual contains expected[0].
@@ -70,7 +70,7 @@ func Contain(actual any, expected ...any) error {
 // Contain (negated!)
 func (negated) Contain(actual any, expected ...any) error {
 	err := Contain(actual, expected...)
-	if errors.Is(err, suite.ErrAssertionFailure) {
+	if errors.Is(err, assert.ErrAssertionFailure) {
 		return nil
 	}
 
