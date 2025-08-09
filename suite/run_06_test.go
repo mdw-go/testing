@@ -1,21 +1,22 @@
-package should_test
+package suite_test
 
 import (
 	"testing"
 
 	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/suite"
 )
 
 func TestSuiteWithSetupsAndTeardownsSkippedEntirelyIfAllTestsSkipped(t *testing.T) {
-	fixture := &Suite06{T: should.New(t)}
+	fixture := &Suite06{T: suite.New(t)}
 
-	should.Run(fixture, should.Options.SharedFixture())
+	suite.Run(fixture, suite.Options.SharedFixture())
 
 	fixture.So(fixture.events, should.BeNil)
 }
 
 type Suite06 struct {
-	*should.T
+	*suite.T
 	events []string
 }
 

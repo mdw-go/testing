@@ -1,18 +1,19 @@
-package should_test
+package suite_test
 
 import (
 	"testing"
 
 	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/suite"
 )
 
 func TestFocus(t *testing.T) {
 	fixture := &Suite05{
-		T:      should.New(t),
+		T:      suite.New(t),
 		events: make(map[string]struct{}),
 	}
 
-	should.Run(fixture, should.Options.SharedFixture())
+	suite.Run(fixture, suite.Options.SharedFixture())
 
 	fixture.So(t.Failed(), should.BeFalse)
 	if testing.Short() {
@@ -26,7 +27,7 @@ func TestFocus(t *testing.T) {
 }
 
 type Suite05 struct {
-	*should.T
+	*suite.T
 	events map[string]struct{}
 }
 

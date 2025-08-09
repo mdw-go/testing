@@ -1,15 +1,16 @@
-package should_test
+package suite_test
 
 import (
 	"testing"
 
 	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/suite"
 )
 
 func TestLongRunningSuite(t *testing.T) {
-	fixture := &Suite08{T: should.New(t)}
+	fixture := &Suite08{T: suite.New(t)}
 
-	should.Run(fixture, should.Options.LongRunning())
+	suite.Run(fixture, suite.Options.LongRunning())
 
 	if testing.Short() {
 		panic("should have skipped long-running test in -short mode")
@@ -25,7 +26,7 @@ func TestLongRunningSuite(t *testing.T) {
 }
 
 type Suite08 struct {
-	*should.T
+	*suite.T
 	events []string
 }
 

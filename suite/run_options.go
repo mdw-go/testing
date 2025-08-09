@@ -1,4 +1,4 @@
-package should
+package suite
 
 type config struct {
 	longRunning     bool

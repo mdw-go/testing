@@ -10,32 +10,34 @@ import (
 	"github.com/mdw-go/testing/should"
 )
 
+type Func func(actual any, expected ...any) error
+
 type Assertion struct{ *testing.T }
 
 func NewAssertion(t *testing.T) *Assertion {
 	return &Assertion{T: t}
 }
-func (this *Assertion) ExpectedCountInvalid(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) ExpectedCountInvalid(actual any, assertion Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, should.ErrExpectedCountInvalid)
 }
-func (this *Assertion) TypeMismatch(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) TypeMismatch(actual any, assertion Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, should.ErrTypeMismatch)
 }
-func (this *Assertion) KindMismatch(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) KindMismatch(actual any, assertion Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, should.ErrKindMismatch)
 }
-func (this *Assertion) Fail(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) Fail(actual any, assertion Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, should.ErrAssertionFailure)
 }
-func (this *Assertion) Pass(actual any, assertion should.Func, expected ...any) {
+func (this *Assertion) Pass(actual any, assertion Func, expected ...any) {
 	this.Helper()
 	this.err(actual, assertion, expected, nil)
 }
-func (this *Assertion) err(actual any, assertion should.Func, expected []any, expectedErr error) {
+func (this *Assertion) err(actual any, assertion Func, expected []any, expectedErr error) {
 	this.Helper()
 	_, file, line, _ := runtime.Caller(2)
 	subTest := fmt.Sprintf("%s:%d", filepath.Base(file), line)

@@ -4,14 +4,15 @@ import (
 	"testing"
 
 	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/suite"
 )
 
 func TestGameFixture(t *testing.T) {
-	should.Run(&GameFixture{T: should.New(t)}, should.Options.UnitTests())
+	suite.Run(&GameFixture{T: suite.New(t)}, suite.Options.UnitTests())
 }
 
 type GameFixture struct {
-	*should.T
+	*suite.T
 	game *game
 }
 

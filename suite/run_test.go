@@ -1,4 +1,4 @@
-package should
+package suite
 
 import (
 	"strings"

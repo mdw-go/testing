@@ -1,15 +1,16 @@
-package should_test
+package suite_test
 
 import (
 	"testing"
 
 	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/suite"
 )
 
 func TestSuiteWithSetupsAndTeardowns(t *testing.T) {
-	fixture := &Suite01{T: should.New(t)}
+	fixture := &Suite01{T: suite.New(t)}
 
-	should.Run(fixture, should.Options.IntegrationTests())
+	suite.Run(fixture, suite.Options.IntegrationTests())
 
 	fixture.So(fixture.events, should.Equal, []string{
 		"SetupSuite",
@@ -21,7 +22,7 @@ func TestSuiteWithSetupsAndTeardowns(t *testing.T) {
 }
 
 type Suite01 struct {
-	*should.T
+	*suite.T
 	events []string
 }
 

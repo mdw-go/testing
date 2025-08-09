@@ -1,15 +1,16 @@
-package should_test
+package suite_test
 
 import (
 	"testing"
 
 	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/suite"
 )
 
 func TestSuiteWithSkippedTests(t *testing.T) {
-	fixture := &Suite07{T: should.New(t)}
+	fixture := &Suite07{T: suite.New(t)}
 
-	should.Run(fixture, should.Options.SharedFixture())
+	suite.Run(fixture, suite.Options.SharedFixture())
 
 	fixture.So(fixture.events, should.Equal, []string{
 		"SetupSuite",
@@ -21,7 +22,7 @@ func TestSuiteWithSkippedTests(t *testing.T) {
 }
 
 type Suite07 struct {
-	*should.T
+	*suite.T
 	events []string
 }
 
