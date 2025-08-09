@@ -18,6 +18,9 @@ func BeNil(actual any, expected ...any) error {
 		return nil
 	}
 
+	if err, ok := actual.(error); ok {
+		return failure("expected nil error, but got '%s'", err)
+	}
 	return failure("got %#v, want <nil>", actual)
 }
 func interfaceHasNilValue(actual any) bool {
