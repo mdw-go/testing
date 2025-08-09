@@ -19,7 +19,7 @@ func BeNil(actual any, expected ...any) error {
 	}
 
 	if err, ok := actual.(error); ok {
-		return failure("err: '%s' (%#v)", err, err)
+		return failure("'%s' (%#v)", err, err)
 	}
 	return failure("got %#v, want <nil>", actual)
 }
