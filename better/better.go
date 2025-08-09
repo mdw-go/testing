@@ -13,7 +13,7 @@ The simplest way is by combining the So function with the many provided assertio
 		"log"
 		"testing"
 
-		"github.com/mdw-go/testing/better"
+		"github.com/mdw-go/testing/v2/better"
 	)
 
 	func Test(t *testing.T) {
@@ -26,8 +26,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/mdw-go/testing/should"
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/should"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 func So(t *testing.T, actual any, assertion suite.Func, expected ...any) {

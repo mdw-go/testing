@@ -3,7 +3,7 @@ package should_test
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/v2/should"
 )
 
 func TestShouldEndWith(t *testing.T) {

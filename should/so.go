@@ -3,7 +3,7 @@ package should
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 type Func func(actual any, expected ...any) error

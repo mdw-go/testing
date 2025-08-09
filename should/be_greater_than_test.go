@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/v2/should"
 )
 
 func TestShouldBeGreaterThan(t *testing.T) {

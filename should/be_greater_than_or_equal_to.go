@@ -3,7 +3,7 @@ package should
 import (
 	"errors"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // BeGreaterThanOrEqualTo verifies that actual is less than or equal to expected.

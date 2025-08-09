@@ -7,8 +7,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/mdw-go/testing/should"
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/should"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 type Assertion struct{ *testing.T }

@@ -4,7 +4,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/v2/should"
 )
 
 func TestShouldBeNil(t *testing.T) {

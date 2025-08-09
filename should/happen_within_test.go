@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/v2/should"
 )
 
 func TestShouldHappenWithin(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // BeLessThan verifies that actual is less than expected.

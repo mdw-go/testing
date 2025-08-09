@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // Contain determines whether actual contains expected[0].

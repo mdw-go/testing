@@ -5,7 +5,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // BeChronological asserts whether actual is a []time.Time and

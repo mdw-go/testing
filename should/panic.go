@@ -3,7 +3,7 @@ package should
 import (
 	"errors"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // Panic invokes the func() provided as actual and recovers from any

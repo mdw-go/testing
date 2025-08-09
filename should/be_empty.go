@@ -4,7 +4,7 @@ import (
 	"errors"
 	"reflect"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // BeEmpty uses reflection to verify that len(actual) == 0.

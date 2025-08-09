@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // HappenOn ensures that two time values happen at the same instant.

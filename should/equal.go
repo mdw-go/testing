@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // Equal verifies that the actual value is equal to the expected value.

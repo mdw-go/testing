@@ -3,7 +3,7 @@ package better_test
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/better"
+	"github.com/mdw-go/testing/v2/better"
 )
 
 func TestSo(t *testing.T) {

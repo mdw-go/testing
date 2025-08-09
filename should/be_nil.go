@@ -4,7 +4,7 @@ import (
 	"errors"
 	"reflect"
 
-	"github.com/mdw-go/testing/suite"
+	"github.com/mdw-go/testing/v2/suite"
 )
 
 // BeNil verifies that actual is the nil value.
