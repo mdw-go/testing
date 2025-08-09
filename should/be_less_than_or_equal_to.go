@@ -3,7 +3,7 @@ package should
 import (
 	"errors"
 
-	"github.com/mdw-go/testing/contracts"
+	"github.com/mdw-go/testing/suite"
 )
 
 // BeLessThanOrEqualTo verifies that actual is less than or equal to expected.
@@ -14,7 +14,7 @@ func BeLessThanOrEqualTo(actual any, expected ...any) error {
 		return nil
 	}
 	err = BeLessThan(actual, expected...)
-	if errors.Is(err, contracts.ErrAssertionFailure) {
+	if errors.Is(err, suite.ErrAssertionFailure) {
 		return failure("%v was not less than or equal to %v", actual, expected)
 	}
 
@@ -27,7 +27,7 @@ func BeLessThanOrEqualTo(actual any, expected ...any) error {
 // BeLessThanOrEqualTo negated!
 func (negated) BeLessThanOrEqualTo(actual any, expected ...any) error {
 	err := BeLessThanOrEqualTo(actual, expected...)
-	if errors.Is(err, contracts.ErrAssertionFailure) {
+	if errors.Is(err, suite.ErrAssertionFailure) {
 		return nil
 	}
 

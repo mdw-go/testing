@@ -4,7 +4,7 @@ import (
 	"errors"
 	"reflect"
 
-	"github.com/mdw-go/testing/contracts"
+	"github.com/mdw-go/testing/suite"
 )
 
 // BeEmpty uses reflection to verify that len(actual) == 0.
@@ -31,7 +31,7 @@ func BeEmpty(actual any, expected ...any) error {
 // BeEmpty (negated!)
 func (negated) BeEmpty(actual any, expected ...any) error {
 	err := BeEmpty(actual, expected...)
-	if errors.Is(err, contracts.ErrAssertionFailure) {
+	if errors.Is(err, suite.ErrAssertionFailure) {
 		return nil
 	}
 	if err != nil {

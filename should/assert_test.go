@@ -7,8 +7,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/mdw-go/testing/contracts"
 	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/suite"
 )
 
 type Assertion struct{ *testing.T }
@@ -30,7 +30,7 @@ func (this *Assertion) KindMismatch(actual any, assertion should.Func, expected 
 }
 func (this *Assertion) Fail(actual any, assertion should.Func, expected ...any) {
 	this.Helper()
-	this.err(actual, assertion, expected, contracts.ErrAssertionFailure)
+	this.err(actual, assertion, expected, suite.ErrAssertionFailure)
 }
 func (this *Assertion) Pass(actual any, assertion should.Func, expected ...any) {
 	this.Helper()

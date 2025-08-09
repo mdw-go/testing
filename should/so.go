@@ -3,12 +3,12 @@ package should
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/contracts"
+	"github.com/mdw-go/testing/suite"
 )
 
 type Func func(actual any, expected ...any) error
 
-func So(t *testing.T, actual any, assertion contracts.Func, expected ...any) {
+func So(t *testing.T, actual any, assertion suite.Func, expected ...any) {
 	t.Helper()
-	_ = contracts.New(t).So(actual, assertion, expected...)
+	_ = suite.New(t).So(actual, assertion, expected...)
 }

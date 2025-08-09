@@ -26,20 +26,20 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/mdw-go/testing/contracts"
 	"github.com/mdw-go/testing/should"
+	"github.com/mdw-go/testing/suite"
 )
 
-func So(t *testing.T, actual any, assertion contracts.Func, expected ...any) {
+func So(t *testing.T, actual any, assertion suite.Func, expected ...any) {
 	t.Helper()
-	_ = contracts.New(t).So(actual, assertion, expected...)
+	_ = suite.New(t).So(actual, assertion, expected...)
 }
 
-func wrap(assertion contracts.Func) contracts.Func {
+func wrap(assertion suite.Func) suite.Func {
 	return func(actual any, expected ...any) error {
 		err := assertion(actual, expected...)
 		if err != nil {
-			err = fmt.Errorf("%w %w", contracts.ErrFatalAssertionFailure, err)
+			err = fmt.Errorf("%w %w", suite.ErrFatalAssertionFailure, err)
 		}
 		return err
 	}

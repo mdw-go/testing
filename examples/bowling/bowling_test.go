@@ -3,17 +3,16 @@ package bowling
 import (
 	"testing"
 
-	"github.com/mdw-go/testing/contracts"
 	"github.com/mdw-go/testing/should"
 	"github.com/mdw-go/testing/suite"
 )
 
 func TestGameFixture(t *testing.T) {
-	suite.Run(&GameFixture{T: contracts.New(t)}, suite.Options.UnitTests())
+	suite.Run(&GameFixture{T: suite.New(t)}, suite.Options.UnitTests())
 }
 
 type GameFixture struct {
-	*contracts.T
+	*suite.T
 	game *game
 }
 

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/mdw-go/testing/contracts"
+	"github.com/mdw-go/testing/suite"
 )
 
 // Equal verifies that the actual value is equal to the expected value.
@@ -38,7 +38,7 @@ func Equal(actual any, EXPECTED ...any) error {
 // Equal negated!
 func (negated) Equal(actual any, expected ...any) error {
 	err := Equal(actual, expected...)
-	if errors.Is(err, contracts.ErrAssertionFailure) {
+	if errors.Is(err, suite.ErrAssertionFailure) {
 		return nil
 	}
 
