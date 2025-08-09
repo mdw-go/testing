@@ -3,12 +3,13 @@ package suite_test
 import (
 	"testing"
 
+	"github.com/mdw-go/testing/contracts"
 	"github.com/mdw-go/testing/should"
 	"github.com/mdw-go/testing/suite"
 )
 
 func TestSuiteWithSkippedTests(t *testing.T) {
-	fixture := &Suite07{T: suite.New(t)}
+	fixture := &Suite07{T: contracts.New(t)}
 
 	suite.Run(fixture, suite.Options.SharedFixture())
 
@@ -22,7 +23,7 @@ func TestSuiteWithSkippedTests(t *testing.T) {
 }
 
 type Suite07 struct {
-	*suite.T
+	*contracts.T
 	events []string
 }
 

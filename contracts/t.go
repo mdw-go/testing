@@ -1,11 +1,10 @@
-package suite
+package contracts
 
 import (
+	"errors"
 	"fmt"
 	"testing"
 )
-
-type Func func(actual any, expected ...any) error
 
 type T struct{ *testing.T }
 
@@ -15,6 +14,9 @@ func New(t *testing.T) *T {
 func (this *T) So(actual any, assertion Func, expected ...any) (ok bool) {
 	this.Helper()
 	err := assertion(actual, expected...)
+	if errors.Is(err, ErrFatalAssertionFailure) {
+		this.Fatal(err)
+	}
 	if err != nil {
 		this.Error(err)
 	}

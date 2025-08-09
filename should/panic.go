@@ -1,12 +1,16 @@
 package should
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/mdw-go/testing/contracts"
+)
 
 // Panic invokes the func() provided as actual and recovers from any
 // panic. It returns an error if actual() does not result in a panic.
 func Panic(actual any, expected ...any) (err error) {
 	err = NOT.Panic(actual, expected...)
-	if errors.Is(err, ErrAssertionFailure) {
+	if errors.Is(err, contracts.ErrAssertionFailure) {
 		return nil
 	}
 

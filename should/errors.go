@@ -7,13 +7,14 @@ import (
 	"runtime/debug"
 	"strconv"
 	"strings"
+
+	"github.com/mdw-go/testing/contracts"
 )
 
 var (
 	ErrExpectedCountInvalid = errors.New("expected count invalid")
 	ErrTypeMismatch         = errors.New("type mismatch")
 	ErrKindMismatch         = errors.New("kind mismatch")
-	ErrAssertionFailure     = errors.New("assertion failure")
 )
 
 func failure(format string, args ...any) error {
@@ -22,7 +23,7 @@ func failure(format string, args ...any) error {
 		format += "\nStack: (filtered)\n%s"
 		args = append(args, trace)
 	}
-	return wrap(ErrAssertionFailure, format, args...)
+	return wrap(contracts.ErrAssertionFailure, format, args...)
 }
 func stack() string {
 	lines := strings.Split(string(debug.Stack()), "\n")

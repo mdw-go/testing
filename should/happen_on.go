@@ -3,6 +3,8 @@ package should
 import (
 	"errors"
 	"time"
+
+	"github.com/mdw-go/testing/contracts"
 )
 
 // HappenOn ensures that two time values happen at the same instant.
@@ -27,7 +29,7 @@ func HappenOn(actual any, expected ...any) error {
 // HappenOn negated!
 func (negated) HappenOn(actual any, expected ...any) error {
 	err := HappenOn(actual, expected...)
-	if errors.Is(err, ErrAssertionFailure) {
+	if errors.Is(err, contracts.ErrAssertionFailure) {
 		return nil
 	}
 	if err != nil {

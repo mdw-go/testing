@@ -3,6 +3,8 @@ package should
 import (
 	"errors"
 	"reflect"
+
+	"github.com/mdw-go/testing/contracts"
 )
 
 // BeNil verifies that actual is the nil value.
@@ -36,7 +38,7 @@ func interfaceHasNilValue(actual any) bool {
 // BeNil negated!
 func (negated) BeNil(actual any, expected ...any) error {
 	err := BeNil(actual, expected...)
-	if errors.Is(err, ErrAssertionFailure) {
+	if errors.Is(err, contracts.ErrAssertionFailure) {
 		return nil
 	}
 

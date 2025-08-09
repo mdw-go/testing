@@ -1,6 +1,10 @@
 package should
 
-import "errors"
+import (
+	"errors"
+
+	"github.com/mdw-go/testing/contracts"
+)
 
 // BeGreaterThanOrEqualTo verifies that actual is less than or equal to expected.
 // Both actual and expected must be strings or numeric in type.
@@ -10,7 +14,7 @@ func BeGreaterThanOrEqualTo(actual any, expected ...any) error {
 		return nil
 	}
 	err = BeGreaterThan(actual, expected...)
-	if errors.Is(err, ErrAssertionFailure) {
+	if errors.Is(err, contracts.ErrAssertionFailure) {
 		return failure("%v was not greater than or equal to %v", actual, expected)
 	}
 
@@ -23,7 +27,7 @@ func BeGreaterThanOrEqualTo(actual any, expected ...any) error {
 // BeGreaterThanOrEqualTo negated!
 func (negated) BeGreaterThanOrEqualTo(actual any, expected ...any) error {
 	err := BeGreaterThanOrEqualTo(actual, expected...)
-	if errors.Is(err, ErrAssertionFailure) {
+	if errors.Is(err, contracts.ErrAssertionFailure) {
 		return nil
 	}
 

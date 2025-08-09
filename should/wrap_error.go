@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"reflect"
+
+	"github.com/mdw-go/testing/contracts"
 )
 
 // WrapError uses errors.Is to verify that actual is an error value
@@ -31,7 +33,7 @@ func WrapError(actual any, expected ...any) error {
 	return fmt.Errorf("%w:\n"+
 		"\t            outer err: (%s)\n"+
 		"\tshould wrap inner err: (%s)",
-		ErrAssertionFailure,
+		contracts.ErrAssertionFailure,
 		outer,
 		inner,
 	)

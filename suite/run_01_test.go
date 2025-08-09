@@ -3,12 +3,13 @@ package suite_test
 import (
 	"testing"
 
+	"github.com/mdw-go/testing/contracts"
 	"github.com/mdw-go/testing/should"
 	"github.com/mdw-go/testing/suite"
 )
 
 func TestSuiteWithSetupsAndTeardowns(t *testing.T) {
-	fixture := &Suite01{T: suite.New(t)}
+	fixture := &Suite01{T: contracts.New(t)}
 
 	suite.Run(fixture, suite.Options.IntegrationTests())
 
@@ -22,7 +23,7 @@ func TestSuiteWithSetupsAndTeardowns(t *testing.T) {
 }
 
 type Suite01 struct {
-	*suite.T
+	*contracts.T
 	events []string
 }
 

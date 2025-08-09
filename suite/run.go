@@ -6,6 +6,8 @@ import (
 	"runtime/debug"
 	"strings"
 	"testing"
+
+	"github.com/mdw-go/testing/contracts"
 )
 
 /*
@@ -146,7 +148,7 @@ func (this testCase) runTest(t *testing.T) {
 	if this.config.freshFixture {
 		fixtureValue = reflect.New(this.fixtureType.Elem())
 	}
-	fixtureValue.Elem().FieldByName("T").Set(reflect.ValueOf(New(t)))
+	fixtureValue.Elem().FieldByName("T").Set(reflect.ValueOf(contracts.New(t)))
 
 	setup, hasSetup := fixtureValue.Interface().(setupTest)
 	if hasSetup {

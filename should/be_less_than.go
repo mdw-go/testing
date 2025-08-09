@@ -5,6 +5,8 @@ import (
 	"math"
 	"reflect"
 	"time"
+
+	"github.com/mdw-go/testing/contracts"
 )
 
 // BeLessThan verifies that actual is less than expected.
@@ -39,7 +41,7 @@ func BeLessThan(actual any, EXPECTED ...any) error {
 // BeLessThan negated!
 func (negated) BeLessThan(actual any, expected ...any) error {
 	err := BeLessThan(actual, expected...)
-	if errors.Is(err, ErrAssertionFailure) {
+	if errors.Is(err, contracts.ErrAssertionFailure) {
 		return nil
 	}
 

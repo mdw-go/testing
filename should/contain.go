@@ -4,6 +4,8 @@ import (
 	"errors"
 	"reflect"
 	"strings"
+
+	"github.com/mdw-go/testing/contracts"
 )
 
 // Contain determines whether actual contains expected[0].
@@ -68,7 +70,7 @@ func Contain(actual any, expected ...any) error {
 // Contain (negated!)
 func (negated) Contain(actual any, expected ...any) error {
 	err := Contain(actual, expected...)
-	if errors.Is(err, ErrAssertionFailure) {
+	if errors.Is(err, contracts.ErrAssertionFailure) {
 		return nil
 	}
 
