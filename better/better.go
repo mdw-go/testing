@@ -19,6 +19,10 @@ The simplest way is by combining the So function with the many provided assertio
 	func Test(t *testing.T) {
 		better.So(t, 1, better.Equal, 1)
 	}
+
+NOTE: assertions provided by this package return suite.ErrFatalAssertionFailure in the case of failed assertions, which
+will result in a call to *testing.T.Fatal(), ending the current test. Use the assertions in the should package if you
+wish for tests to continue after a failed assertion.
 */
 package better
 
