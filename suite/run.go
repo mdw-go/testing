@@ -182,7 +182,7 @@ func panicReport(r any, stack []byte) string {
 	_, _ = fmt.Fprintln(&builder, "...")
 
 	opened, closed := false, false
-	for _, line := range strings.Split(string(stack), "\n") {
+	for line := range strings.SplitSeq(string(stack), "\n") {
 		if strings.Contains(line, "/runtime/panic.go:") {
 			opened = true
 			continue

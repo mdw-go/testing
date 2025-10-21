@@ -1,5 +1,7 @@
 package should
 
+import "slices"
+
 import "reflect"
 
 func validateExpected(count int, expected []any) error {
@@ -31,10 +33,8 @@ func validateType(actual, expected any) error {
 func validateKind(actual any, kinds ...reflect.Kind) error {
 	value := reflect.ValueOf(actual)
 	kind := value.Kind()
-	for _, k := range kinds {
-		if k == kind {
-			return nil
-		}
+	if slices.Contains(kinds, kind) {
+		return nil
 	}
 	return wrap(ErrKindMismatch, "got %s, want one of %v", kind, kinds)
 }

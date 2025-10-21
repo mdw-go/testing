@@ -14,7 +14,7 @@ func (this *game) recordRoll(pins int) {
 func (this *game) calculateScore() int {
 	this.throw = 0
 	this.score = 0
-	for frame := 0; frame < 10; frame++ {
+	for range 10 {
 		this.score += this.scoreCurrentFrame()
 		this.throw += this.advanceFrame()
 	}
