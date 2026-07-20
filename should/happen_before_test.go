@@ -10,12 +10,14 @@ import (
 func TestShouldHappenBefore(t *testing.T) {
 	assert := NewAssertion(t)
 
-	assert.TypeMismatch(1, should.HappenBefore, time.Now())
-	assert.TypeMismatch(time.Now(), should.HappenBefore, 1)
+	now := time.Now()
+	assert.TypeMismatch(1, should.HappenBefore, now)
+	assert.TypeMismatch(now, should.HappenBefore, 1)
 
-	assert.ExpectedCountInvalid(time.Now(), should.HappenBefore)
-	assert.ExpectedCountInvalid(time.Now(), should.HappenBefore, time.Now(), time.Now())
+	assert.ExpectedCountInvalid(now, should.HappenBefore)
+	assert.ExpectedCountInvalid(now, should.HappenBefore, now, now)
 
-	assert.Fail(time.Now().Add(time.Second), should.HappenBefore, time.Now())
-	assert.Pass(time.Now(), should.HappenBefore, time.Now())
+	assert.Fail(now.Add(time.Nanosecond), should.HappenBefore, now)
+	assert.Fail(now, should.HappenBefore, now)
+	assert.Pass(now, should.HappenBefore, now.Add(time.Nanosecond))
 }
